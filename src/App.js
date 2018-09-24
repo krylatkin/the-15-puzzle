@@ -4,6 +4,7 @@ import { moveRight, moveLeft } from './reducers/boardReducer'
 
 import logo from './logo.svg';
 import './App.css';
+import Board from './components/Board';
 
 class App extends Component {
 
@@ -15,22 +16,27 @@ class App extends Component {
     this.props.moveLeft();
   };
 
+  moveCell = (number) => {
+    alert(number);
+  };
+
   render() {
     console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to React "The 15 Puzzle"</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={this.moveRight}>Move Right</button>
-        <button onClick={this.moveLeft}>Move Left</button>
+        <Board
+          board={this.props.board}
+          moveCell={this.moveCell}
+        />
+        <button onClick={this.moveLeft}>{'<--'} Move 15 Left </button>
+        <button onClick={this.moveRight}>Move 15 Right {'-->'}</button>
         <pre>
          {
-           JSON.stringify(this.props)
+           false && JSON.stringify(this.props)
          }
         </pre>
       </div>

@@ -15,7 +15,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .App-intro {
@@ -25,4 +25,51 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+
+table {
+  margin: 1rem auto;
+  background: grey;
+  border: 10px solid #dadad8;
+  color: #9a9b95;
+  font-size: 3rem;
+}
+
+td.tile {
+  background-color: #222222;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.4rem;
+  color: #60d8f9;
+  box-shadow: #222222 1px 1px 1px 0px;
+}
+
+td.empty {
+  background: grey;
+}
+
+
+
+html {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 480px)  {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 320px)  {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 280px)  {
+  html {
+    font-size: 10px;
+  }
 }
