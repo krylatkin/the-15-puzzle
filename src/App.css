@@ -37,13 +37,14 @@ table {
   font-size: 3rem;
 }
 
-td.tile {
+td.tile, button {
   background-color: #222222;
   width: 5rem;
   height: 5rem;
   border-radius: 0.4rem;
   color: #60d8f9;
   box-shadow: #222222 1px 1px 1px 0px;
+  cursor: pointer;
 }
 
 td.empty {
