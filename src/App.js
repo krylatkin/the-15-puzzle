@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { moveRight, moveLeft } from './reducers/boardReducer'
+import { moveNumber } from './actions';
 
 import logo from './logo.svg';
 import './App.css';
@@ -8,16 +8,8 @@ import Board from './components/Board';
 
 class App extends Component {
 
-  moveRight = () => {
-    this.props.moveRight();
-  };
-
-  moveLeft = () => {
-    this.props.moveLeft();
-  };
-
   moveCell = (number) => {
-    alert(number);
+    this.props.moveNumber(number);
   };
 
   render() {
@@ -32,8 +24,6 @@ class App extends Component {
           board={this.props.board}
           moveCell={this.moveCell}
         />
-        <button onClick={this.moveLeft}>{'<--'} Move 15 Left </button>
-        <button onClick={this.moveRight}>Move 15 Right {'-->'}</button>
         <pre>
          {
            false && JSON.stringify(this.props)
@@ -49,8 +39,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  moveRight: () => dispatch(moveRight()),
-  moveLeft: () => dispatch(moveLeft()),
+  moveNumber: (n) => dispatch(moveNumber(n)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
