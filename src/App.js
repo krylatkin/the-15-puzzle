@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { moveNumber, setBoard } from './actions';
+import { moveNumber, setBoard, undoMove } from './actions';
 
 import logo from './logo.svg';
 import './App.css';
@@ -10,6 +10,10 @@ class App extends Component {
 
   moveCell = (number) => {
     this.props.moveNumber(number);
+  };
+
+  undoMove = () => {
+    this.props.undoMove();
   };
 
   saveGame = () => {
@@ -41,6 +45,7 @@ class App extends Component {
         />
         <button onClick={this.saveGame}>Save Game</button>
         <button onClick={this.loadGame}>Load Game</button>
+        <button onClick={this.undoMove}>Undo Move</button>
         <pre>
          {
            false && JSON.stringify(this.props)
@@ -52,12 +57,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state
+  ...state.board,
 });
 
 const mapDispatchToProps = dispatch => ({
   moveNumber: (n) => dispatch(moveNumber(n)),
   setBoard: (board) => dispatch(setBoard(board)),
+  undoMove: () => dispatch(undoMove()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
