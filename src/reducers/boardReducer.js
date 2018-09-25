@@ -1,5 +1,5 @@
 import { clone } from 'ramda';
-import { MOVE_NUMBER } from "../actions";
+import { MOVE_NUMBER, SET_BOARD } from "../actions";
 import { getPositionByNumber, shuffleBoard } from './helpers';
 
 const initialState = [
@@ -32,6 +32,8 @@ export default (state = shuffleBoard(initialState), action) => {
         return state;
       }
 
+    case SET_BOARD:
+      return action.board;
 
     default:
       return state;
